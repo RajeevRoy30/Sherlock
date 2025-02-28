@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Playables; // Import Timeline
+using UnityEngine.Playables;
 
 public class MonsterAI : MonoBehaviour
 {
@@ -29,12 +29,12 @@ public class MonsterAI : MonoBehaviour
 
     public void StartChase()
     {
-        if (!isChasing) // Prevent re-triggering
+        if (!isChasing)
         {
             isChasing = true;
             agent.speed = 6f;
 
-            // 🎬 Play Cutscene when the chase starts
+            
             if (chaseCutscene != null)
             {
                 chaseCutscene.Play();

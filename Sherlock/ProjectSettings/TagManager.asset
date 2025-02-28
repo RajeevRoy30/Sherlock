@@ -8,6 +8,7 @@ TagManager:
   - ground
   - Pickable
   - Walkable
+  - ThirdPersonCamera
   layers:
   - Default
   - TransparentFX

@@ -414,7 +414,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a6bce8f1aed4de49b4544b8b8948b32,
         type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 9193158345646458134}
     - targetCorrespondingSourceObject: {fileID: 6502182839619065283, guid: 0a6bce8f1aed4de49b4544b8b8948b32,
         type: 3}
@@ -580,7 +580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 3
   deceleration: 3
-  jumpForce: 5
   gravity: -9.8
 --- !u!4 &4758678016580350510 stripped
 Transform:

@@ -1,29 +1,42 @@
 using UnityEngine;
-using Cinemachine;
-using UnityEngine.Timeline;
-using UnityEngine.Playables;
 
-public class CameraSwitchTrigger : MonoBehaviour
+public class CameraSwitch : MonoBehaviour
 {
-    public GameObject mainCamera; // Reference to the main camera
-    public CinemachineVirtualCamera virtualCamera; // Reference to the virtual camera
-    public PlayableDirector timeline; // Reference to the timeline
-
-    private void OnTriggerEnter(Collider other)
+    public GameObject mainCamera; 
+    public GameObject thirdPersonCamera; 
+    public Animator animator; 
+    void Update()
     {
-        if (other.CompareTag("Player")) // Ensure the player has the "Player" tag
+        
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            // Disable the main camera
-            mainCamera.SetActive(false);
-
-            // Enable the virtual camera
-            virtualCamera.gameObject.SetActive(true);
-
-            // Play the timeline
-            if (timeline != null)
-            {
-                timeline.Play();
-            }
+            animator.SetTrigger("PlayAnimationE"); 
+            SwitchToThirdPersonCamera();
         }
+
+       
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            animator.SetTrigger("PlayAnimationF"); 
+            SwitchToThirdPersonCamera();
+        }
+
+        
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            SwitchToMainCamera();
+        }
+    }
+
+    void SwitchToThirdPersonCamera()
+    {
+        mainCamera.SetActive(false);
+        thirdPersonCamera.SetActive(true);
+    }
+
+    void SwitchToMainCamera()
+    {
+        thirdPersonCamera.SetActive(false);
+        mainCamera.SetActive(true);
     }
 }

@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerLook : MonoBehaviour
 {
-    [SerializeField] private Camera cam;  // Assign in Inspector
-    [SerializeField] private Transform cameraPos;  // Assign Camera Position Object
+    [SerializeField] private Camera cam;  
+    [SerializeField] private Transform cameraPos;  
 
     private float xRotation = 0f;
     public float xSensitivity = 30f;
@@ -12,7 +12,7 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
-        // Make Camera follow CameraPos object
+        // Follow CameraPos object
         if (cameraPos != null)
         {
             cam.transform.position = cameraPos.position;
@@ -24,12 +24,12 @@ public class PlayerLook : MonoBehaviour
         float mouseX = input.x;
         float mouseY = input.y;
 
-        // Vertical Look (Up/Down)
+        // Vertical Look 
         xRotation -= mouseY * ySensitivity * Time.deltaTime;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Horizontal Look (Left/Right)
+        // Horizontal 
         transform.Rotate(Vector3.up * (mouseX * xSensitivity * Time.deltaTime));
     }
 }

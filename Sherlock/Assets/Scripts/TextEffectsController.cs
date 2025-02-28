@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextEffectsController : MonoBehaviour
 {
-    public TextMeshProUGUI[] textObjects; // Array to hold multiple text objects
+    public TextMeshProUGUI[] textObjects; 
     public float fadeDuration = 2f;
 
     private void Start()
@@ -17,7 +17,7 @@ public class TextEffectsController : MonoBehaviour
         foreach (TextMeshProUGUI text in textObjects)
         {
             yield return StartCoroutine(FadeInText(text));
-            yield return new WaitForSeconds(1f); // Optional delay before fading out
+            yield return new WaitForSeconds(1f); 
             yield return StartCoroutine(FadeOutText(text));
         }
     }
